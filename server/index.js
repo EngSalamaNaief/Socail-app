@@ -42,7 +42,7 @@ app.use("/api/convarsation",convarsation);
 
 //databse connection 
 
-mongoose.connect("mongodb://localhost:27017/socail")
+mongoose.connect("mongodb+srv://salama:1522813884@cluster0.tkrqm.mongodb.net/test")
         .then(()=>{
             console.log("the database is connected")
         })

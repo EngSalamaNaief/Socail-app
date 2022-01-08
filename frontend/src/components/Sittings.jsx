@@ -72,11 +72,11 @@ import { deleteUser} from '../redux/actions/AuthActions';
                     </div>
                     <div className="flex mt-4 items-center capitalize">
                         <div className='mr-2'>user Profile Picture</div>
-                        <input name="userProfilePic" value={userProfilePic} onChange={e=>setUserProfilePic(e.target.files[0])} required type="file" placeholder="relationship" className="p-4"/>
+                        <input name="userProfilePic"  onChange={e=>setUserProfilePic(e.target.files[0])} required type="file" placeholder="relationship" className="p-4"/>
                     </div>
                     <div className="flex mt-4 items-center capitalize">
                         <div className='mr-2'>user Cover Picture</div>
-                        <input name="userBackgroundPic" value={userCoverPic} onChange={e=>setUserCoverPic(e.target.files[0])} required type="file" placeholder="relationship" className=" p-4 "/>
+                        <input name="userBackgroundPic" onChange={e=>setUserCoverPic(e.target.files[0])} required type="file" placeholder="relationship" className=" p-4 "/>
                     </div>
                     <div className="w-full flex justify-between">
     

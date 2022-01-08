@@ -8,12 +8,15 @@ import { useEffect } from 'react';
 import ConvarsationCom from '../components/ConvarsationCom';
 import { useState } from 'react';
 import OnlineFriends from '../components/OnlineFriends';
+import {io} from "socket.io-client";
 function MessagePage(props) {
     const PF =process.env.REACT_APP_PUBLIC_FOLDER;
     const [text,setText]=useState('');
     const [conv,setConv]=useState(null);
+    const [socket,setSocket]=useState(null);
     useEffect(()=>{
         props.GetConvarsation();
+        setSocket(io("ws://localhost:8900"));
     },[])
 
     const loadMassages =(id)=>{

@@ -30,8 +30,7 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
 */
 
 router.post("/create",upload.single("file"),async (req,res)=>{
-    console.log("req file",req.file);
-    console.log("req body",req.body);
+
     try{
        // console.log(req.file)
 

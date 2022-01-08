@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import { useHistory } from 'react-router';
 import { createPost } from '../../redux/actions/PostActions';
 import axios from 'axios';
-function CreatePost({username,user,id,userImg,createPost}) {
+function CreatePost({username,user,id,token,userImg,createPost}) {
 
     const [postText,setPostText]=useState('');
     const [postImg,setPostImg]=useState(null);
@@ -24,20 +24,17 @@ function CreatePost({username,user,id,userImg,createPost}) {
         const newdata= new FormData();
        // const filename=`${Date.now()}_${postImg.name}`;
         newdata.append("file",postImg);
-        newdata.append("userId",id);
+        newdata.append("userId",user._id);
         newdata.append("desc",postText);
 
            // newPost.postPhoto=filename;
-            console.log(postImg);
+            
 
             
             try{
-                
-              // await axios.post("/upload",newdata);
+
              await axios.post("/posts/create",newdata)
-             
-             
-                
+ 
             }catch(e){
                 console.log(e)
             }
@@ -92,7 +89,8 @@ function CreatePost({username,user,id,userImg,createPost}) {
 
 const mapSateToProp=(state)=>{
     return{
-        user:state.auth.user
+        user:state.auth.user,
+        token:state.auth.token
     }
 }
 
